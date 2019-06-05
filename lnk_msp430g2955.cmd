@@ -61,10 +61,10 @@ MEMORY
     INFOB                   : origin = 0x1080, length = 0x0040
     INFOC                   : origin = 0x1040, length = 0x0040
     INFOD                   : origin = 0x1000, length = 0x0040
-    BOOT                    : origin = 0x2100, length = 0x1000
-    APPLI_KEY               : origin = 0x3100, length = 0x0002, fill = 0xFFFF
-    APPLICATION             : origin = 0x3104, length = 0xCEDA
-    APPLI_CRC               : origin = 0x3102, length = 0x0002, fill = 0xFFFF
+    BOOT                    : origin = 0x2100, length = 0x3000
+    APPLI_KEY               : origin = 0x5100, length = 0x0002, fill = 0xFFFF
+    APPLICATION             : origin = 0x5104, length = 0xAEDA
+    APPLI_CRC               : origin = 0x5102, length = 0x0002, fill = 0xFFFF
     BSLSIGNATURE            : origin = 0xFFDE, length = 0x0002, fill = 0xFFFF
     INT00                   : origin = 0xFFE0, length = 0x0002
     INT01                   : origin = 0xFFE2, length = 0x0002

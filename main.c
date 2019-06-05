@@ -5,11 +5,13 @@
 #include "Fls/fls_main.h"
 #include "SchM/schm_boot.h"
 #include "main.h"
+#include "IEEE-802.15.4/src/ieee_802_15_4.h"
+#include "ZigBee/src/mrf24j40.h"
 
 extern void JumpToAppl(void);
 extern void EraseApplication(void);
 extern void CalcCRC(void);
-extern void Spi_Init(void);
+void SPI_Init(void);
 
 
 extern const uint16_t APPLICATION_KEY[];
@@ -41,12 +43,27 @@ void ClockInit(){
     IFG1 &= ~OFIFG;
 }
 
+void SPI_Init(void){
+    UCA0CTL1 = UCSWRST;                       // **Put state machine in reset**
+    UCA0CTL0 = UCCKPH+UCMSB+UCMST+UCSYNC;
+    UCA0CTL1 = UCSSEL_2;
+    UCA0BR0 = 0x0C;
+    UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
+}
+
+
+void ZIGBEE_Init(void){
+    RadioInit();
+    RadioInitP2P(); // setup for simple peer-to-peer communication
+}
+
 void MainPlatformInit(void)
 {
     ClockInit();
     TimerA0_Registers_Init();
     Fls_Init(&globalFlashCfg);
-    //Spi_Init();
+    SPI_Init();
+    ZIGBEE_Init();
 }
 
 void GlobalInterruptsEnable(void)
