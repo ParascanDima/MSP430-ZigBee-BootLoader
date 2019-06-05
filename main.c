@@ -80,8 +80,6 @@ int main(void)
 	SchM_InitPlatform();
     //AppAddr = *APPLICATION;
 
-	SetBootRequest(enReprogRequest, (uint16_t)&APPLICATION_KEY[0], (uint8_t*)string, enUINT16, (uint8_t)(sizeof(string)/sizeof(uint16_t)));
-	SetBootRequest(enReprogRequest, (uint16_t)&APPLICATION_KEY[0]+sizeof(string_1), (uint8_t*)string_1, enUINT16, (uint8_t)(sizeof(string_1)/sizeof(uint16_t)));
     __bis_SR_register(GIE);
 	if (0xCAFEDEDA == appKey)
 	{

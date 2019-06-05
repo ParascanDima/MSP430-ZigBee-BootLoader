@@ -1,0 +1,12 @@
+[submodule "https://github.com/ParascanDima/IEEE-802.15.4.git"]
+	path = https://github.com/ParascanDima/IEEE-802.15.4.git
+	url = https://github.com/ParascanDima/IEEE-802.15.4.git
+[submodule "/home/"]
+	path = /home/
+	url = https://github.com/ParascanDima/IEEE-802.15.4.git
+[submodule "ZigBee"]
+	path = ZigBee
+	url = https://github.com/ParascanDima/ZIGBEE_MRF24J40MA.git
+[submodule "IEEE-802.15.4"]
+	path = IEEE-802.15.4
+	url = https://github.com/ParascanDima/IEEE-802.15.4.git
