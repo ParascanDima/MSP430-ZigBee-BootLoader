@@ -14,12 +14,10 @@ extern void CalcCRC(void);
 void SPI_Init(void);
 
 
-extern const uint16_t APPLICATION_KEY[];
-extern const uint16_t APPLICATION_CRC[];
-extern const uint16_t APPLICATION_CODE[];
+extern const uint16_t APPLI_KEY[];
+extern const uint16_t APPLICATION[];
+extern const uint16_t APPLI_CRC[];
 
-
-const uint16_t AppAddr = (uint16_t)APPLICATION_CODE;
 
 
 void ClockInit(){
@@ -89,7 +87,7 @@ TASK(Main_10ms)
  */
 int main(void)
 {
-    volatile uint16_t appKey = *APPLICATION_KEY;
+    volatile uint16_t appKey = *APPLI_KEY;
     uint16_t string[3] = {0x1234, 0x5678, 0x89AB};
     uint16_t string_1[3] = {0xF1F2, 0xF3F4, 0xF5F6};
 

@@ -46,42 +46,42 @@
 /*----------------------------------------------------------------------------*/
 /* Version: 1.206                                                             */
 /*----------------------------------------------------------------------------*/
-#include "lnk_bootloader.cmd"
+#include "global_memmap.h"
 /****************************************************************************/
 /* Specify the system memory map                                            */
 /****************************************************************************/
 
 MEMORY
 {
-    SFR                     : origin = 0x0000, length = 0x0010
-    PERIPHERALS_8BIT        : origin = 0x0010, length = 0x00F0
-    PERIPHERALS_16BIT       : origin = 0x0100, length = 0x0100
-    RAM                     : origin = 0x1100, length = 0x1000
-    INFOA                   : origin = 0x10C0, length = 0x0040
-    INFOB                   : origin = 0x1080, length = 0x0040
-    INFOC                   : origin = 0x1040, length = 0x0040
-    INFOD                   : origin = 0x1000, length = 0x0040
-    BOOT                    : origin = 0x2100, length = 0x3000
-    APPLI_KEY               : origin = 0x5100, length = 0x0002, fill = 0xFFFF
-    APPLICATION             : origin = 0x5104, length = 0xAEDA
-    APPLI_CRC               : origin = 0x5102, length = 0x0002, fill = 0xFFFF
-    BSLSIGNATURE            : origin = 0xFFDE, length = 0x0002, fill = 0xFFFF
-    INT00                   : origin = 0xFFE0, length = 0x0002
-    INT01                   : origin = 0xFFE2, length = 0x0002
-    INT02                   : origin = 0xFFE4, length = 0x0002
-    INT03                   : origin = 0xFFE6, length = 0x0002
-    INT04                   : origin = 0xFFE8, length = 0x0002
-    INT05                   : origin = 0xFFEA, length = 0x0002
-    INT06                   : origin = 0xFFEC, length = 0x0002
-    INT07                   : origin = 0xFFEE, length = 0x0002
-    INT08                   : origin = 0xFFF0, length = 0x0002
-    INT09                   : origin = 0xFFF2, length = 0x0002
-    INT10                   : origin = 0xFFF4, length = 0x0002
-    INT11                   : origin = 0xFFF6, length = 0x0002
-    INT12                   : origin = 0xFFF8, length = 0x0002
-    INT13                   : origin = 0xFFFA, length = 0x0002
-    INT14                   : origin = 0xFFFC, length = 0x0002
-    RESET                   : origin = 0xFFFE, length = 0x0002
+    SFR                : origin = 0x0000, length = 0x0010
+    PERIPHERALS_8BIT   : origin = 0x0010, length = 0x00F0
+    PERIPHERALS_16BIT  : origin = 0x0100, length = 0x0100
+    RAM                : origin = 0x1100, length = 0x1000
+    INFOA              : origin = 0x10C0, length = 0x0040
+    INFOB              : origin = 0x1080, length = 0x0040
+    INFOC              : origin = 0x1040, length = 0x0040
+    INFOD              : origin = 0x1000, length = 0x0040
+    BOOT               : origin = BOOT_START, length = BOOT_SIZE
+    APPLI_KEY          : origin = APPLICATION_KEY_START, length = APPLICATION_KEY_SIZE, fill = 0xFFFF
+    APPLICATION        : origin = APPLICATION_CODE_START, length = APPLICATION_CODE_SIZE
+    APPLI_CRC          : origin = APPLICATION_CRC_START, length = APPLICATION_CRC_SIZE, fill = 0xFFFF
+    BSLSIGNATURE       : origin = BSLSIGNATURE_START, length = 0x0002, fill = 0xFFFF
+    INT00              : origin = 0xFFE0, length = 0x0002
+    INT01              : origin = 0xFFE2, length = 0x0002
+    INT02              : origin = 0xFFE4, length = 0x0002
+    INT03              : origin = 0xFFE6, length = 0x0002
+    INT04              : origin = 0xFFE8, length = 0x0002
+    INT05              : origin = 0xFFEA, length = 0x0002
+    INT06              : origin = 0xFFEC, length = 0x0002
+    INT07              : origin = 0xFFEE, length = 0x0002
+    INT08              : origin = 0xFFF0, length = 0x0002
+    INT09              : origin = 0xFFF2, length = 0x0002
+    INT10              : origin = 0xFFF4, length = 0x0002
+    INT11              : origin = 0xFFF6, length = 0x0002
+    INT12              : origin = 0xFFF8, length = 0x0002
+    INT13              : origin = 0xFFFA, length = 0x0002
+    INT14              : origin = 0xFFFC, length = 0x0002
+    RESET              : origin = 0xFFFE, length = 0x0002
 }
 
 /****************************************************************************/
